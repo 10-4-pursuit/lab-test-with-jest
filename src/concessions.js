@@ -22,6 +22,7 @@ function calculateTotalFromIDs(concessions, ids) {
       total += concession.priceInCents;
     }
   }
+  
   return total;
 }
 

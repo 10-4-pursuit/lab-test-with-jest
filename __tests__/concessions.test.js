@@ -34,20 +34,16 @@ describe("calculateTotalFromIDs()", () => {
             "rNVCeVsri"
         ];
         const expected = 3975;
-
         const actual = calculateTotalFromIDs(concessions, ids);
-
         expect(actual).toEqual(expected);
     });
 });
 
-describe("calculateTotalFromIDs() function", () => {
+describe("calculateTotalFromIDs()", () => {
     test("Returns 0 if 'ids' array is empty", () => {
         const ids = [];
         const expected = 0;
-
         const actual = calculateTotalFromIDs(concessions, ids);
-
         expect(actual).toEqual(expected);
     });
 });
