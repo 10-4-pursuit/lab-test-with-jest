@@ -26,5 +26,12 @@ function calculateTotalFromTicketNames(tickets, names) {
       total += ticket.priceInCents;
     }
   }
+  
   return total;
 }
+
+
+module.exports = {
+  getTicketByName,
+  calculateTotalFromTicketNames,
+};
