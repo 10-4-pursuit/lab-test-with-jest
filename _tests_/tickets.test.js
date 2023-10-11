@@ -5,7 +5,7 @@ const {
 const ticketsData = require('../data/tickets');
 
 test('should return a ticket by name', () => {
-	const result = getTicketByName(ticketsData, 'AdultRegular');
+	const result = getTicketByName(ticketsData, 'Adult Regular');
 	const expectedTicket = {id: 'uD_PoicNN', name: 'Adult Regular', priceInCents: 1369};
 	expect(result).toEqual(expectedTicket);
   });
@@ -15,7 +15,7 @@ test('should return a ticket by name', () => {
 		const result = getTicketByName(ticketsData, 'Non-Existent Ticket');
 		expect(result).toBeNull();
 	});
-});
+
 describe('calculateTotalFromTicketNames', () =>{
 	test('should calculate the total from an array of ticket names', () => {
 		const ticketNames = ['Adult Matinee', 'Child Regular'];
