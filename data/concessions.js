@@ -5,3 +5,4 @@ module.exports = [
   { id: "NEHAsbTYk", name: "Large Soda", priceInCents: 749 },
   { id: "rNVCeVsri", name: "Candy", priceInCents: 569 },
 ];
+
