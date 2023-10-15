@@ -1,37 +1,28 @@
 const { getConcessionByID, calculateTotalFromIDs } = require('../src/concessions.js');
+const tickets = require('../data/concessions.js');
+
 
 describe('getConcessionByID', () => {
-    const concessions = [
-        { id: '1', priceInCents: 100 },
-        { id: '2', priceInCents: 200 },
-        { id: '3', priceInCents: 300 },
-    ];
-
     test('returns a valid concession by ID', () => {
-        const result = getConcessionByID(concessions, '2');
-        expect(result).toEqual({ id: '2', priceInCents: 200 }); // Use `toEqual` for object comparison
+        const result = getConcessionByID(tickets, "g9sZdG1hI");
+        const expected = { "id": "g9sZdG1hI", "name": "Small Popcorn", "priceInCents": 929 }
+        expect(result).toStrictEqual(expected);
     });
 
     test('returns null for an invalid ID', () => {
-        const result = getConcessionByID(concessions, '4');
-        expect(result).toBeNull(); // Use `toBeNull()` for checking null values
+        const result = getConcessionByID(tickets, '4');
+        expect(result).toBeNull();
     });
 });
 
 describe('calculateTotalFromIDs', () => {
-    const concessions = [
-        { id: '1', priceInCents: 100 },
-        { id: '2', priceInCents: 200 },
-        { id: '3', priceInCents: 300 },
-    ];
-
     test('calculates the total price based on valid IDs', () => {
-        const result = calculateTotalFromIDs(concessions, ['1', '3']); // Pass strings as IDs
-        expect(result).toBe(400);
+        const result = calculateTotalFromIDs(tickets, ['g9sZdG1hI', 'KzWBehRAD']); 
+        expect(result).toBe(929 + 699); 
     });
 
-    test('returns null for an invalid ID', () => {
-        const result = calculateTotalFromIDs(concessions, ['4']); // Pass an array with a single invalid ID
-        expect(result).toBe(0); // Assuming that you want to return 0 for an invalid ID
+    test('returns 0 for an empty list of IDs', () => {
+        const result = calculateTotalFromIDs(tickets, []);
+        expect(result).toBe(0);
     });
 });
