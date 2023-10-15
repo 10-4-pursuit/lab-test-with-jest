@@ -12,6 +12,8 @@ function getTicketByName(tickets, name) {
   return result || null;
 }
 
+
+
 /**
  * Calculates a total based on the given ticket names.
  * @param {Object[]} tickets An array of ticket objects
@@ -19,6 +21,15 @@ function getTicketByName(tickets, name) {
  * @returns The total value of all tickets from the `names` array.
  */
 function calculateTotalFromTicketNames(tickets, names) {
+  if (!names) {
+    return "Error: invalid value provided"
+  }
+  
+  if (names.length === 0) {
+    return "Error: invalid value provided"
+  }
+
+  
   let total = 0;
   for (let name of names) {
     const ticket = getTicketByName(tickets, name);
@@ -28,3 +39,5 @@ function calculateTotalFromTicketNames(tickets, names) {
   }
   return total;
 }
+
+module.exports = { getTicketByName, calculateTotalFromTicketNames }
