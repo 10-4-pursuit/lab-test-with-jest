@@ -4,9 +4,14 @@
  * @param {String} id A unique ID for a specific concession
  * @returns A concession object with a matching ID or `null` if no object is found.
  */
+
+const concessions = require("../data/concessions")
+//
 function getConcessionByID(concessions, id) {
   return concessions.find((concession) => concession.id === id) || null;
 }
+
+// console.log(getConcessionByID(concessions, "0Qs9Yp2NL"))
 
 /**
  * Calculates a total based on the given concession IDs.
@@ -14,13 +19,22 @@ function getConcessionByID(concessions, id) {
  * @param {String[]} ids An array of unique IDs
  * @returns The total value of all concessions from the `ids` array.
  */
+
+
+
 function calculateTotalFromIDs(concessions, ids) {
   let total = 0;
+  
   for (let id of ids) {
     const concession = getConcessionByID(concessions, id);
     if (concession) {
       total += concession.priceInCents;
+    
     }
   }
   return total;
 }
+
+// console.log(calculateTotalFromIDs(concessions, ids))
+
+module.export = { getConcessionByID, calculateTotalFromIDs }
