@@ -4,6 +4,11 @@
  * @param {String} name The name of a ticket
  * @returns The ticket object with a matching ID or `null` if no object is found.
  */
+
+const ticketData = require("../data/tickets");
+const input= [];
+
+
 function getTicketByName(tickets, name) {
   const result = tickets.find((ticket) => {
     return ticket.name.toLowerCase() === name.toLowerCase();
@@ -11,6 +16,8 @@ function getTicketByName(tickets, name) {
 
   return result || null;
 }
+
+
 
 /**
  * Calculates a total based on the given ticket names.
@@ -28,5 +35,7 @@ function calculateTotalFromTicketNames(tickets, names) {
   }
   return total;
 }
+
+console.log(calculateTotalFromTicketNames(ticketData, input))
 
 module.exports = { getTicketByName,calculateTotalFromTicketNames }
